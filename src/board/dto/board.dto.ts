@@ -1,4 +1,4 @@
-import { IsHexColor, Length } from 'class-validator';
+import { IsHexColor, IsNumber, IsOptional, Length, isNumber } from 'class-validator';
 
 export class CreateBoardDto {
   @Length(1, 32, {
@@ -14,7 +14,6 @@ export class CreateGroupDto {
   })
   title: string;
 
-  
   boardId: number;
 }
 
@@ -24,11 +23,13 @@ export class CreateNoteDto {
   })
   title: string;
 
+  @IsOptional()
   @Length(1, 512, {
     message: 'Note description must be between 1 to 512 characters long!',
   })
   description?: string;
 
+  @IsOptional()
   @IsHexColor()
   color?: string;
 }

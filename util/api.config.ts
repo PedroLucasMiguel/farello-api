@@ -16,13 +16,23 @@ export class API {
       path: 'board',
       request: 'GET',
       options: {
-        retrieve: { path: 'retrieve/:item/:id', request: 'GET' },
-        create: { path: 'create/:item', request: 'POST' },
-        //create_board: { path: 'create/board', request: 'POST' },
-        //create_group: { path: 'create/group/:boardId', request: 'POST' },
-        //create_note: { path: 'create/note/:groupId', request: 'POST' },
-        edit: { path: 'edit/:item/:id', request: 'PATCH' },
-        delete: { path: 'edit/:item/:id', request: 'DELETE' },
+        // Board options
+        create_board: { path: 'create/board', request: 'POST' },
+        retrieve_board: { path: 'retrieve/board/:id', request: 'GET' },
+        edit_board: {path: 'edit/board/:id', request: 'PATCH'},
+        delete_board: {path: 'delete/board/:id', request: 'DELETE'},
+        
+        // Group options
+        create_group: { path: 'create/group', request: 'POST' },
+        retrieve_group: { path: 'retrieve/group/:id', request: 'GET' },
+        edit_group: {path: 'edit/group/:id', request: 'PATCH'},
+        delete_group: {path: 'delete/group/:id', request: 'DELETE'},
+
+        // Note options
+        create_note: { path: 'create/note', request: 'POST' },
+        retrieve_note: { path: 'retrieve/note/:id', request: 'GET' },
+        edit_note: {path: 'edit/note/:id', request: 'PATCH'},
+        delete_note: {path: 'delete/note/:id', request: 'DELETE'},
       },
     },
   };

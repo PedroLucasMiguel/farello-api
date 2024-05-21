@@ -1,7 +1,8 @@
 import { ForbiddenException, Injectable } from '@nestjs/common';
 import { Request } from 'express';
 import { PrismaService } from 'src/prisma/prisma.service';
-import { CreateBoardDto, CreateGroupDto } from './dto/board.dto';
+import { CreateBoardDto, CreateGroupDto } from './dto';
+
 
 @Injectable()
 export class BoardService {
