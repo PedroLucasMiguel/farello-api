@@ -1,0 +1,61 @@
+// Prisma Stuff
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Farello Models
+model Users {
+  id Int @id @default(autoincrement())
+
+  // Authentication Required
+  email String @unique
+  passhash String
+
+  // Extra data
+  username String
+  pfp String?
+
+  // One user can have multiple Boards
+  boards Boards[]
+}
+
+model Boards {
+  id Int @id @default(autoincrement())
+  title String
+  statusd String[] @default(["Completed", "Ongoing", "Paused"])
+
+  // A oard belongs to a single user
+  userId Int
+  user Users @relation(fields: [userId], references: [id])
+
+  // A board can have multiple groups
+  groups Groups[]
+}
+
+model Groups {
+  id Int @id @default(autoincrement())
+  title String
+
+  // A group belong to a unique board
+  boardID Int
+  board Boards @relation(fields: [boardID], references: [id])
+
+  // A board can have multiple notes
+  notes Notes[]
+}
+
+model Notes {
+  id Int @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  color String
+  status String
+
+  // A note belong to a single group
+  groupID Int
+  group Groups @relation(fields: [groupID], references: [id])
+}

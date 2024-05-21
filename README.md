@@ -1,2 +1,2 @@
 # farello-api
-farello API
+My Trello-like aplication (API)
