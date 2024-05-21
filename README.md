@@ -1,2 +1,3 @@
-# farello-api
-My Trello-like aplication (API)
+# Farello API
+
+That's the API used by **Farello**.
