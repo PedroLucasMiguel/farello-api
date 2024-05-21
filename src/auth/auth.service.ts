@@ -64,7 +64,7 @@ export class AuthService {
 
       // Creating paylod for the access_token
       const payload = {
-        sub: user.id,
+        id: user.id,
         email: user.email,
         username: user.username,
       };
